@@ -1,0 +1,31 @@
+import re
+def fun(x):
+    l=[]
+    m=0
+    l=x.split('-')
+    r=''.join(l)
+    if (len(r)==16):
+        count=0
+        if re.match('^[4-6]{1}[0-9]{3}[-]?[0-9]{4}[-]?[0-9]{4}[-]?[0-9]{4}[-]?',x):
+            for i in range(0,len(r)-1):
+                if(r[i]==r[i+1]):
+                    count+=1
+                    if(count==3):
+                        m=1
+                        break
+                    else:
+                        continue
+                else:
+                    count=0
+        else:
+            m=1
+    else:
+        m=1
+    if(m==1):
+        print("Invalid")
+    else:
+        print("Valid")
+t=int(input())
+for i in range(0,t):
+    x=input()
+    fun(x)
